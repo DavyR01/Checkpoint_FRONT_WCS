@@ -18,7 +18,7 @@ const FormAddCountry = () => {
                <input type="text" id="name" {...register('name')} />
             </div>
             <div>
-               <label htmlFor="emoji">Emoji:</label>
+               <div><label htmlFor="emoji">Emoji:</label></div>
                <input type="text" id="emoji" {...register('emoji')} />
             </div>
             <div>
