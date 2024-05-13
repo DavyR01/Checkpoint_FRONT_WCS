@@ -46,13 +46,6 @@ export const CREATE_NEW_COUNTRY = gql`
 mutation Mutation($data: NewCountryInput!) {
   addCountry(data: $data) {
     id
-    code
-    name
-    emoji
-    continent {
-      id
-      name
-    }
   }
 }
 `
@@ -63,7 +56,6 @@ export const CREATE_NEW_CONTINENT = gql`
 mutation AddContinent($data: NewContinentInput!) {
   addContinent(data: $data) {
     id
-    name
   }
 }
 `
