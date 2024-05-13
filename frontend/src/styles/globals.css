@@ -56,6 +56,17 @@ body {
   img {
     width: 4rem;
   }
+
+  .countryItem {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .countryItem img {
+    max-width: 100%;
+  }
+
 }
 
 .countriesList>div {
@@ -152,7 +163,7 @@ body {
       margin-right: 20px;
     }
 
-    input{
+    input {
       height: 40px;
     }
   }

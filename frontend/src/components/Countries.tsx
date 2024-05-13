@@ -15,7 +15,7 @@ const Countries = () => {
    return (
       <div className='countriesList'>
          {data?.countries.map((country, index) => (
-            <div key={country.id}>
+            <div key={country.id} className="countryItem">
 
                <Link href={`/country/${country.code}`}>
                   <h4>{country.name}</h4>
