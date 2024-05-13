@@ -1,6 +1,6 @@
 import { CREATE_NEW_COUNTRY } from '@/graphql/client';
 import { useMutation } from '@apollo/client';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 
 const FormAddCountry = () => {
@@ -19,6 +19,7 @@ const FormAddCountry = () => {
             }
          });
          console.log(result);
+         window.location.reload();
          reset();
       } catch (error) {
          console.error('Error adding country:', error);
