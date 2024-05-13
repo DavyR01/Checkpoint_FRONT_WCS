@@ -1,13 +1,28 @@
+import { CREATE_NEW_COUNTRY } from '@/graphql/client';
+import { useMutation } from '@apollo/client';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 
 const FormAddCountry = () => {
    const { register, handleSubmit, reset } = useForm();
+   const [addCountry, { loading, error }] = useMutation(CREATE_NEW_COUNTRY);
 
-   const onSubmit = (data: any) => {
-  
-      console.log(data);
-      reset();
+   const onSubmit = async (data: any) => {
+      try {
+         const result = await addCountry({
+            variables: {
+               data: {
+                  name: data.name,
+                  code: data.code,
+                  emoji: data.emoji
+               }
+            }
+         });
+         console.log(result);
+         reset();
+      } catch (error) {
+         console.error('Error adding country:', error);
+      }
    };
 
    return (
@@ -26,6 +41,8 @@ const FormAddCountry = () => {
                <input type="text" id="code" {...register('code')} />
             </div>
             <button type="submit">Add</button>
+            {loading && <p>Loading...</p>}
+            {error && <p>Error : {error.message}</p>}
          </form>
       </div>
    )
