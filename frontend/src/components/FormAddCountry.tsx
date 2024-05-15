@@ -1,4 +1,4 @@
-import { CREATE_NEW_COUNTRY } from '@/graphql/client';
+import { CREATE_NEW_COUNTRY, GET_ALL_COUNTRIES } from '@/graphql/client';
 import { useMutation } from '@apollo/client';
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
@@ -16,10 +16,12 @@ const FormAddCountry = () => {
                   code: data.code,
                   emoji: data.emoji
                }
-            }
+            },
+            refetchQueries: [{
+               query: GET_ALL_COUNTRIES
+            }]
          });
          console.log(result);
-         window.location.reload();
          reset();
       } catch (error) {
          console.error('Error adding country:', error);

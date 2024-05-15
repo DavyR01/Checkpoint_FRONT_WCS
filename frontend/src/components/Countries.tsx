@@ -15,15 +15,20 @@ const Countries = () => {
    return (
       <div className='countriesList'>
          {data?.countries.map((country, index) => (
-            <div key={country.id} className="countryItem">
-
-               <Link href={`/country/${country.code}`}>
+            <Link href={`/country/${country.code}`} key={country.id}>
+               <div className="countryItem">
                   <h4>{country.name}</h4>
+                  {/* <span role="img" aria-label="flag"> {country.emoji} </span> */}
+                  <span className="mr-2 text-xl">{country.emoji}</span>
+
                   {/* {<img src={country.emoji} alt="flag" />} */}
-                  <img src='https://urlz.fr/qDVA' alt="flag" />
-               </Link>
-               {/* { country.emoji ? <img src={country.emoji} alt="flag" /> : <img src='https://urlz.fr/qDVA' alt="flag" />  } */}
-            </div>
+                  {/* <span dangerouslySetInnerHTML={{ __html: country.emoji }} /> */}
+
+                  {/* <img src='https://urlz.fr/qDVA' alt="flag" /> */}
+                  {/* { country.emoji ? <img src={country.emoji} alt="flag" /> : <img src='https://urlz.fr/qDVA' alt="flag" />  } */}
+
+               </div>
+            </Link>
          ))}
       </div>
    )
